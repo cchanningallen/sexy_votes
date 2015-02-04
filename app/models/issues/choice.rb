@@ -1,0 +1,3 @@
+class Choice < Issue
+
+end
