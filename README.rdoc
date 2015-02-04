@@ -2,6 +2,7 @@
 
 ### Relationships
 
+```
 Organizations
   |
   *- Teams -------------------*
@@ -23,3 +24,4 @@ Organizations
               *-*-*                 |
                 |                   |
                 *-------------------*
+```
