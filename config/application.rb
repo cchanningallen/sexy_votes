@@ -14,5 +14,6 @@ Bundler.require(:default, Rails.env)
 module SexyVotes
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/app/models/issues)
+    config.autoload_paths += %W(#{config.root}/app/decorators)
   end
 end

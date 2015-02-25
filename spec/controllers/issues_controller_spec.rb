@@ -37,7 +37,7 @@ RSpec.describe IssuesController, :type => :controller do
   let(:valid_session) { {} }
 
   describe "GET index" do
-    it "assigns all issues as @issues" do
+    it "assigns all issues as issues" do
       issue = Issue.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:issues)).to eq([issue])
@@ -45,7 +45,7 @@ RSpec.describe IssuesController, :type => :controller do
   end
 
   describe "GET show" do
-    it "assigns the requested issue as @issue" do
+    it "assigns the requested issue as issue" do
       issue = Issue.create! valid_attributes
       get :show, {:id => issue.to_param}, valid_session
       expect(assigns(:issue)).to eq(issue)
@@ -53,14 +53,14 @@ RSpec.describe IssuesController, :type => :controller do
   end
 
   describe "GET new" do
-    it "assigns a new issue as @issue" do
+    it "assigns a new issue as issue" do
       get :new, {}, valid_session
       expect(assigns(:issue)).to be_a_new(Issue)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested issue as @issue" do
+    it "assigns the requested issue as issue" do
       issue = Issue.create! valid_attributes
       get :edit, {:id => issue.to_param}, valid_session
       expect(assigns(:issue)).to eq(issue)
@@ -75,7 +75,7 @@ RSpec.describe IssuesController, :type => :controller do
         }.to change(Issue, :count).by(1)
       end
 
-      it "assigns a newly created issue as @issue" do
+      it "assigns a newly created issue as issue" do
         post :create, {:issue => valid_attributes}, valid_session
         expect(assigns(:issue)).to be_a(Issue)
         expect(assigns(:issue)).to be_persisted
@@ -88,7 +88,7 @@ RSpec.describe IssuesController, :type => :controller do
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved issue as @issue" do
+      it "assigns a newly created but unsaved issue as issue" do
         post :create, {:issue => invalid_attributes}, valid_session
         expect(assigns(:issue)).to be_a_new(Issue)
       end
@@ -113,7 +113,7 @@ RSpec.describe IssuesController, :type => :controller do
         skip("Add assertions for updated state")
       end
 
-      it "assigns the requested issue as @issue" do
+      it "assigns the requested issue as issue" do
         issue = Issue.create! valid_attributes
         put :update, {:id => issue.to_param, :issue => valid_attributes}, valid_session
         expect(assigns(:issue)).to eq(issue)
@@ -127,7 +127,7 @@ RSpec.describe IssuesController, :type => :controller do
     end
 
     describe "with invalid params" do
-      it "assigns the issue as @issue" do
+      it "assigns the issue as issue" do
         issue = Issue.create! valid_attributes
         put :update, {:id => issue.to_param, :issue => invalid_attributes}, valid_session
         expect(assigns(:issue)).to eq(issue)

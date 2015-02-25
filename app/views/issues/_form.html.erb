@@ -1,10 +1,10 @@
-<%= form_for(@issue) do |f| %>
-  <% if @issue.errors.any? %>
+<%= form_for(issue, url: issue_path(issue)) do |f| %>
+  <% if issue.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+      <h2><%= pluralize(issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
 
       <ul>
-      <% @issue.errors.full_messages.each do |msg| %>
+      <% issue.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

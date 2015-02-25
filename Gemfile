@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.2.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
+# Use SCSS & Bootstrap for stylesheets
+gem 'bootstrap-sass', '~> 3.3.3'
 gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -44,6 +45,8 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'decent_exposure'
+gem 'draper', '~> 1.3'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 gem "default_value_for", "~> 3.0.0"
 gem 'awesome_print'
@@ -51,4 +54,5 @@ gem 'awesome_print'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'faker'
+  gem 'rails-erd'
 end
