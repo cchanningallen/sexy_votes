@@ -1,12 +1,11 @@
 <h1>Listing issues</h1>
 
-<table>
+<table id="issues-table" class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Type</th>
-      <th>User</th>
-      <th>Team</th>
+      <th>Score Options</th>
+      <th>Votes</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,15 +13,14 @@
   </thead>
 
   <tbody>
-    <% @issues.each do |issue| %>
+    <% issues_presenter.each do |issue_presenter| %>
       <tr>
-        <td><%= issue.name %></td>
-        <td><%= issue.type %></td>
-        <td><%= issue.user %></td>
-        <td><%= issue.team %></td>
-        <td><%= link_to 'Show', issue %></td>
-        <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-        <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= issue_presenter.name %></td>
+        <td><%= issue_presenter.formatted_score_options.html_safe %></td>
+        <td class="vote-chart" data-issue-id=<%= issue_presenter.id %> data-vote-data=<%= issue_presenter.vote_data %>></td>
+        <td><%= link_to 'Show', issue_path(issue_presenter), class: "btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_issue_path(issue_presenter), class: "btn btn-default" %></td>
+        <td><%= link_to 'Destroy', issue_path(issue_presenter), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Issue', new_issue_path %>
+<%= link_to 'New Issue', new_issue_path, class: "btn btn-default" %>
